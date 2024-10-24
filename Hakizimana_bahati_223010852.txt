@@ -1,0 +1,218 @@
+MariaDB [student]> use RUHANDE;
+Database changed
+MariaDB [RUHANDE]> create table(id int(16)primary key,F_name varchar(255),L_name(255),gender varchar(255),Province varchar(255),district varchar(255),sector varchar(255),cell varchar(255),email varchar(255),Telephone int(10)unique);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(id int(16)primary key,F_name varchar(255),L_name(255),gender varchar(255),Pr...' at line 1
+MariaDB [RUHANDE]> create table NGOMA(id int(16)primary key,F_name varchar(255),L_name(255),gender varchar(255),Province varchar(255),district varchar(255),sector varchar(255),cell varchar(255),email varchar(255),Telephone int(10)unique);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(255),gender varchar(255),Province varchar(255),district varchar(255),sector ...' at line 1
+MariaDB [RUHANDE]> create table NGOMA (id int(16)primary key,F_name varchar(255),L_name(255),gender varchar(255),Province varchar(255),district varchar(255),sector varchar(255),cell varchar(255),email varchar(255),Telephone int(10)unique);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(255),gender varchar(255),Province varchar(255),district varchar(255),sector ...' at line 1
+MariaDB [RUHANDE]> create table NGOMA (id int(16)primary key,F_name varchar(255),L_name varchar(255),gender varchar(255),Province varchar(255),district varchar(255),sector varchar(255),cell varchar(255),email varchar(255),Telephone int(10)unique);
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [RUHANDE]> alter table ngoma modify id int(4)primary key auto_increment;
+ERROR 1068 (42000): Multiple primary key defined
+MariaDB [RUHANDE]> alter table ngoma modify id int(4) auto_increment;
+Query OK, 0 rows affected (0.038 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [RUHANDE]> insert into ngoma values('',"ngobo","roben","m","southern","gisagara","mugonero","nyabisindu","ngobo@gmail.com",0782301856);
+ERROR 1366 (22007): Incorrect integer value: '' for column `ruhande`.`ngoma`.`id` at row 1
+MariaDB [RUHANDE]> insert into ngoma values('1',"ngobo","roben","m","southern","gisagara","mugonero","nyabisindu","ngobo@gmail.com",0782301856);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('2',"mugabo","emmy","m","southern","huye","madina","ruhande","mugabo@gmail.com",0782331856);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('3',"kabanda","jile","m","southern","huye","gateme","mukoni","kabanda@gmail.com",0782331850);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('4',"mukamana","liliane","f","southern","gisagara","gisagara","mushubati","mukamana@gmail.com",0782331854);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('5',"mutesi","joy","f","southern","kamonyi","mbirizi","kabirizi","mutesi@gmail.com",0792331854);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('5',"mutesi","angel","f","southern","kamonyi","mbirizi","kabirizi","angel@gmail.com",0792331853);
+ERROR 1062 (23000): Duplicate entry '5' for key 'PRIMARY'
+MariaDB [RUHANDE]> insert into ngoma values('6',"mutesi","angel","f","southern","kamonyi","mbirizi","kabirizi","angel@gmail.com",0792331853);
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('7',"kim","bahati","m","southern","huye","kibuye","kabirizi","bahati@gmail.com",0792331855);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('8',"mugisha","dior","m","southern","huye","madina","madina","dior@gmail.com",0792333855);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('9',"mugande","olivier","m","southern","huye","madina","madina","olivier@gmail.com",0792333455);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [RUHANDE]> insert into ngoma values('10',"aloyz","kayinamura","m","southern","huye","ngoma","mukoni","kayinamura@gmail.com",0792334755);
+Query OK, 1 row affected (0.016 sec)
+
+MariaDB [RUHANDE]> select* from ngoma;
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+
+| id | F_name   | L_name     | gender | Province | district | sector   | cell       | email                | Telephone |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+
+|  1 | ngobo    | roben      | m      | southern | gisagara | mugonero | nyabisindu | ngobo@gmail.com      | 782301856 |
+|  2 | mugabo   | emmy       | m      | southern | huye     | madina   | ruhande    | mugabo@gmail.com     | 782331856 |
+|  3 | kabanda  | jile       | m      | southern | huye     | gateme   | mukoni     | kabanda@gmail.com    | 782331850 |
+|  4 | mukamana | liliane    | f      | southern | gisagara | gisagara | mushubati  | mukamana@gmail.com   | 782331854 |
+|  5 | mutesi   | joy        | f      | southern | kamonyi  | mbirizi  | kabirizi   | mutesi@gmail.com     | 792331854 |
+|  6 | mutesi   | angel      | f      | southern | kamonyi  | mbirizi  | kabirizi   | angel@gmail.com      | 792331853 |
+|  7 | kim      | bahati     | m      | southern | huye     | kibuye   | kabirizi   | bahati@gmail.com     | 792331855 |
+|  8 | mugisha  | dior       | m      | southern | huye     | madina   | madina     | dior@gmail.com       | 792333855 |
+|  9 | mugande  | olivier    | m      | southern | huye     | madina   | madina     | olivier@gmail.com    | 792333455 |
+| 10 | aloyz    | kayinamura | m      | southern | huye     | ngoma    | mukoni     | kayinamura@gmail.com | 792334755 |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+
+10 rows in set (0.001 sec)
+
+MariaDB [RUHANDE]> alter table ngoma add column sub_ivillage(isibo)varchar(255);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(isibo)varchar(255)' at line 1
+MariaDB [RUHANDE]> alter table ngoma add column isibo varchar(255);
+Query OK, 10 rows affected (0.034 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [RUHANDE]> select* from ngoma;
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+-------+
+| id | F_name   | L_name     | gender | Province | district | sector   | cell       | email                | Telephone | isibo |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+-------+
+|  1 | ngobo    | roben      | m      | southern | gisagara | mugonero | nyabisindu | ngobo@gmail.com      | 782301856 | NULL  |
+|  2 | mugabo   | emmy       | m      | southern | huye     | madina   | ruhande    | mugabo@gmail.com     | 782331856 | NULL  |
+|  3 | kabanda  | jile       | m      | southern | huye     | gateme   | mukoni     | kabanda@gmail.com    | 782331850 | NULL  |
+|  4 | mukamana | liliane    | f      | southern | gisagara | gisagara | mushubati  | mukamana@gmail.com   | 782331854 | NULL  |
+|  5 | mutesi   | joy        | f      | southern | kamonyi  | mbirizi  | kabirizi   | mutesi@gmail.com     | 792331854 | NULL  |
+|  6 | mutesi   | angel      | f      | southern | kamonyi  | mbirizi  | kabirizi   | angel@gmail.com      | 792331853 | NULL  |
+|  7 | kim      | bahati     | m      | southern | huye     | kibuye   | kabirizi   | bahati@gmail.com     | 792331855 | NULL  |
+|  8 | mugisha  | dior       | m      | southern | huye     | madina   | madina     | dior@gmail.com       | 792333855 | NULL  |
+|  9 | mugande  | olivier    | m      | southern | huye     | madina   | madina     | olivier@gmail.com    | 792333455 | NULL  |
+| 10 | aloyz    | kayinamura | m      | southern | huye     | ngoma    | mukoni     | kayinamura@gmail.com | 792334755 | NULL  |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------+-------+
+10 rows in set (0.002 sec)
+
+MariaDB [RUHANDE]> alter table ngoma drop telphone;
+ERROR 1091 (42000): Can't DROP COLUMN `telphone`; check that it exists
+MariaDB [RUHANDE]> alter table ngoma drop column telphone;
+ERROR 1091 (42000): Can't DROP COLUMN `telphone`; check that it exists
+MariaDB [RUHANDE]> alter table ngoma drop column telephone;
+Query OK, 10 rows affected (0.037 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [RUHANDE]> select* from ngoma;
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-------+
+| id | F_name   | L_name     | gender | Province | district | sector   | cell       | email                | isibo |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-------+
+|  1 | ngobo    | roben      | m      | southern | gisagara | mugonero | nyabisindu | ngobo@gmail.com      | NULL  |
+|  2 | mugabo   | emmy       | m      | southern | huye     | madina   | ruhande    | mugabo@gmail.com     | NULL  |
+|  3 | kabanda  | jile       | m      | southern | huye     | gateme   | mukoni     | kabanda@gmail.com    | NULL  |
+|  4 | mukamana | liliane    | f      | southern | gisagara | gisagara | mushubati  | mukamana@gmail.com   | NULL  |
+|  5 | mutesi   | joy        | f      | southern | kamonyi  | mbirizi  | kabirizi   | mutesi@gmail.com     | NULL  |
+|  6 | mutesi   | angel      | f      | southern | kamonyi  | mbirizi  | kabirizi   | angel@gmail.com      | NULL  |
+|  7 | kim      | bahati     | m      | southern | huye     | kibuye   | kabirizi   | bahati@gmail.com     | NULL  |
+|  8 | mugisha  | dior       | m      | southern | huye     | madina   | madina     | dior@gmail.com       | NULL  |
+|  9 | mugande  | olivier    | m      | southern | huye     | madina   | madina     | olivier@gmail.com    | NULL  |
+| 10 | aloyz    | kayinamura | m      | southern | huye     | ngoma    | mukoni     | kayinamura@gmail.com | NULL  |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-------+
+10 rows in set (0.002 sec)
+
+MariaDB [RUHANDE]> update ngoma set isibo="ubutwari" where  id=1;
+Query OK, 1 row affected (0.015 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="ubudacyemwa" where  id=2;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="itwari" where  id=3;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="ubunyangamugayo" where  id=4;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="itwari" where  id=5;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="ubupfura" where  id=6;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="indatwa" where  id=7;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="indacyemwa" where  id=8;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="ubutwari" where  id=9;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> update ngoma set isibo="inganji" where  id=10;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RUHANDE]> select * from ngoma;
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------------+
+| id | F_name   | L_name     | gender | Province | district | sector   | cell       | email                | isibo           |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------------+
+|  1 | ngobo    | roben      | m      | southern | gisagara | mugonero | nyabisindu | ngobo@gmail.com      | ubutwari        |
+|  2 | mugabo   | emmy       | m      | southern | huye     | madina   | ruhande    | mugabo@gmail.com     | ubudacyemwa     |
+|  3 | kabanda  | jile       | m      | southern | huye     | gateme   | mukoni     | kabanda@gmail.com    | itwari          |
+|  4 | mukamana | liliane    | f      | southern | gisagara | gisagara | mushubati  | mukamana@gmail.com   | ubunyangamugayo |
+|  5 | mutesi   | joy        | f      | southern | kamonyi  | mbirizi  | kabirizi   | mutesi@gmail.com     | itwari          |
+|  6 | mutesi   | angel      | f      | southern | kamonyi  | mbirizi  | kabirizi   | angel@gmail.com      | ubupfura        |
+|  7 | kim      | bahati     | m      | southern | huye     | kibuye   | kabirizi   | bahati@gmail.com     | indatwa         |
+|  8 | mugisha  | dior       | m      | southern | huye     | madina   | madina     | dior@gmail.com       | indacyemwa      |
+|  9 | mugande  | olivier    | m      | southern | huye     | madina   | madina     | olivier@gmail.com    | ubutwari        |
+| 10 | aloyz    | kayinamura | m      | southern | huye     | ngoma    | mukoni     | kayinamura@gmail.com | inganji         |
++----+----------+------------+--------+----------+----------+----------+------------+----------------------+-----------------+
+10 rows in set (0.001 sec)
+
+MariaDB [RUHANDE]> select f_name,l_name,province,isibo;
+ERROR 1054 (42S22): Unknown column 'f_name' in 'field list'
+MariaDB [RUHANDE]> select f_name,l_name,province,isibo from ngoma;
++----------+------------+----------+-----------------+
+| f_name   | l_name     | province | isibo           |
++----------+------------+----------+-----------------+
+| ngobo    | roben      | southern | ubutwari        |
+| mugabo   | emmy       | southern | ubudacyemwa     |
+| kabanda  | jile       | southern | itwari          |
+| mukamana | liliane    | southern | ubunyangamugayo |
+| mutesi   | joy        | southern | itwari          |
+| mutesi   | angel      | southern | ubupfura        |
+| kim      | bahati     | southern | indatwa         |
+| mugisha  | dior       | southern | indacyemwa      |
+| mugande  | olivier    | southern | ubutwari        |
+| aloyz    | kayinamura | southern | inganji         |
++----------+------------+----------+-----------------+
+10 rows in set (0.001 sec)
+
+MariaDB [RUHANDE]> select * from ngoma where gender="m" and district="huye";
++----+---------+------------+--------+----------+----------+--------+----------+----------------------+-------------+
+| id | F_name  | L_name     | gender | Province | district | sector | cell     | email                | isibo       |
++----+---------+------------+--------+----------+----------+--------+----------+----------------------+-------------+
+|  2 | mugabo  | emmy       | m      | southern | huye     | madina | ruhande  | mugabo@gmail.com     | ubudacyemwa |
+|  3 | kabanda | jile       | m      | southern | huye     | gateme | mukoni   | kabanda@gmail.com    | itwari      |
+|  7 | kim     | bahati     | m      | southern | huye     | kibuye | kabirizi | bahati@gmail.com     | indatwa     |
+|  8 | mugisha | dior       | m      | southern | huye     | madina | madina   | dior@gmail.com       | indacyemwa  |
+|  9 | mugande | olivier    | m      | southern | huye     | madina | madina   | olivier@gmail.com    | ubutwari    |
+| 10 | aloyz   | kayinamura | m      | southern | huye     | ngoma  | mukoni   | kayinamura@gmail.com | inganji     |
++----+---------+------------+--------+----------+----------+--------+----------+----------------------+-------------+
+6 rows in set (0.001 sec)
+
+MariaDB [RUHANDE]> select * from ngoma where gender="m" or district="huye";
++----+---------+------------+--------+----------+----------+----------+------------+----------------------+-------------+
+| id | F_name  | L_name     | gender | Province | district | sector   | cell       | email                | isibo       |
++----+---------+------------+--------+----------+----------+----------+------------+----------------------+-------------+
+|  1 | ngobo   | roben      | m      | southern | gisagara | mugonero | nyabisindu | ngobo@gmail.com      | ubutwari    |
+|  2 | mugabo  | emmy       | m      | southern | huye     | madina   | ruhande    | mugabo@gmail.com     | ubudacyemwa |
+|  3 | kabanda | jile       | m      | southern | huye     | gateme   | mukoni     | kabanda@gmail.com    | itwari      |
+|  7 | kim     | bahati     | m      | southern | huye     | kibuye   | kabirizi   | bahati@gmail.com     | indatwa     |
+|  8 | mugisha | dior       | m      | southern | huye     | madina   | madina     | dior@gmail.com       | indacyemwa  |
+|  9 | mugande | olivier    | m      | southern | huye     | madina   | madina     | olivier@gmail.com    | ubutwari    |
+| 10 | aloyz   | kayinamura | m      | southern | huye     | ngoma    | mukoni     | kayinamura@gmail.com | inganji     |
++----+---------+------------+--------+----------+----------+----------+------------+----------------------+-------------+
+7 rows in set (0.001 sec)
